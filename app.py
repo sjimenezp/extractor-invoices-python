@@ -1,5 +1,4 @@
 import configparser
-import logging
 import os
 import xml.etree.ElementTree as ET
 from collections import namedtuple
@@ -7,8 +6,6 @@ from datetime import datetime
 
 import pyperclip
 from tabulate import tabulate
-
-logging.basicConfig(filename='Invoice-XML-Extractor.log', filemode='w', level=logging.ERROR)
 
 
 def credits():
@@ -141,7 +138,7 @@ def parse_xml(file_path):
 
         return uuid, fecha, rfc, nombre, total
     except (ET.ParseError, AttributeError, TypeError):
-        logging.error(f"Error al leer el archivo: {file_path}")
+        print(f"⚠️  Error al leer el archivo: {file_path}")
         return ParsedData(None, None, None, None, None)
 
 
@@ -164,7 +161,7 @@ def copy_to_clipboard(data):
     try:
         pyperclip.copy("\n".join(clipboard_data))
     except Exception as e:
-        logging.error(f"Error al copiar al portapapeles: {e}")
+        print(f"⚠️  Error al copiar al portapapeles: {e}")
 
 
 def validate_directory(directory):
@@ -222,6 +219,6 @@ if __name__ == "__main__":
         main()
         credits()
     except Exception as e:
-        logging.error(f"Se produjo un error inesperado: {e}")
+        print(f"❌ Se produjo un error inesperado: {e}")
     finally:
         input("\nPresione cualquier tecla para salir...")
