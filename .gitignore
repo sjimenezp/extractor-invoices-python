@@ -1,0 +1,42 @@
+# Python-generated files
+__pycache__/
+*.py[cod]
+*.egg-info
+*.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv
+venv/
+ENV/
+env/
+
+# Configuration files (local)
+config.ini
+
+# Log files
+*.log
+
+# PyInstaller (eliminar completamente)
+*.spec
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Project specific
+build/
+dist/
+wheels/
